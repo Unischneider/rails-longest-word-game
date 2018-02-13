@@ -1,0 +1,23 @@
+
+<div class="box">
+  <div class="headers">
+    <h1>Game</h1>
+    <p>Find the longest word within the following letters</p>
+  </div>
+  <div class="elem-holder">
+    <% @ran_sam.each do |elem| %>
+    <div class="elem">
+      <h3> <%= elem %></h3>
+    </div>
+    <% end %>
+  </div>
+  <div class="body">
+    <form action="<%= score_path %>" method="post">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :grid, @ran_sam %>
+      <%= hidden_field_tag :start, @start %>
+      <input type="text" name="word" placeholder="Longest Word">
+      <input type="submit">
+    </form>
+  </div>
+</div>
